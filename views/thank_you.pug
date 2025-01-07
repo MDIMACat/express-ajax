@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h2 Thanks for the info! The following was saved to the database:
+
+    ul
+        li id: #{information.visitorId}
+        li Visitor name: #{information.visitorName}
+        li Assisted by: #{information.assistedBy}
+        li Visitor Age: #{information.visitorAge}
+        li Date of visit: #{information.dateOfVisit}
+        li Time of visit: #{information.timeOfVisit}
+        li Comment: #{information.comment}
+
+    br
+    p You will be redirected back to the form shortly.
+
+    p If not, click 
+        a(href=redirectUrl) here
+
+    meta(http-equiv="refresh", content="3;url=" + redirectUrl)

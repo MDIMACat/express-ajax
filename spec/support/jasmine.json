@@ -1,0 +1,14 @@
+{
+  "spec_dir": "spec",
+  "spec_files": [
+    "visitor_spec.js"
+  ],
+  "helpers": [
+    "../src/helper_functions.js",
+    "../src/helper_objects.js"
+  ],
+  "env": {
+    "stopSpecOnExpectationFailure": false,
+    "random": true
+  }
+}

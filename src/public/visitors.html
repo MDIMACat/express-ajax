@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheet/visitor.css">
+
+    <title>Visitor Page</title>
+</head>
+<body>
+    <section>
+        <h1>Visitor Table</h1>
+        <table id="visitor_table" class="visitor_table">
+            <thead class="table_head" id = table_head>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+                <u></u>
+            </thead>
+            <tbody class="table_body" id="table_body">
+            </tbody>
+        </table>
+    </section>
+       
+       
+    <section>
+        <div class="delete_pop_up">
+            <h2>Are you sure?</h2>
+            <p>Do you want to delete this record? <br> This process cannot be undone</p>
+            <div class="delete-buttons">
+                <button class="cancel_button">Cancel</button>
+                <button class="delete_button">Delete</button>
+            </div>
+        </div>
+    </section>
+        <button class="new_visitor">New Visitor</button>
+    
+
+        <section>
+            <div class="update_errors_pop_up">
+                <h2>⚠️ Error ⚠️</h2>
+                <p class="error-msg"></p>
+                <div class="return-buttons">
+                    <button class="return_button">Return</button>
+                </div>
+            </div>
+        </section>
+
+
+    <section>
+        <div class="update-pop-up">
+            <form action="http://localhost:5000/app/visitors" method="POST">
+                <fieldset>
+                    <legend>Update Information</legend>
+        
+                    <label for="visitor_name">Visitor name: </label>
+                    <input type="text" name="visitor_name" id="visitor_name" placeholder="example: John Doe" maxlength="40" required > <br>
+        
+                    <label for="assisted_by">Assisted by: </label>
+                    <input type="text" name="assisted_by" id="assisted_by" placeholder="example: Jane Doe" maxlength="40" required > <br>
+        
+                    <label for="visitor_age">Visitor Age: </label>
+                    <input type="number" name="visitor_age" id="visitor_age" placeholder="example: 29" min="1" max="100" onkeyup="if(this.value > 100) this.value = null;" required > <br>
+        
+                    <label for="date_of_visit">Date of visit: </label>
+                    <input type="date" name="date_of_visit" id="date_of_visit" required > <br>
+        
+                    <label for="time_of_visit">Time of visit: </label>
+                    <input type="time" name="time_of_visit" id="time_of_visit" required > <br>
+        
+                    <label for="comments">Comments: </label>
+                    <textarea name="comments" rows="10" cols="50" id="comments" defaultValue="No comment"></textarea> <br>
+        
+                    <button type="submit" id="submit-button" class="submit-button">Submit</button>
+                   
+                </fieldset>
+            </form>
+            <button type="submit" id="Update-cancel" class="Update-cancel">Cancel</button>
+        </div>
+    </section>
+    <script src="./dist/bundle.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  br
+
+  h2 The following is incorrect :
+  br
+  if issues.length
+    ul
+      each error, i in issues
+        li #{error.msg}
+  
+
+  br
+  p You will be redirected back to the form shortly.
+
+  p If not, click 
+    a(href=redirectUrl) here
+
+  meta(http-equiv="refresh", content="7;url=" + redirectUrl)

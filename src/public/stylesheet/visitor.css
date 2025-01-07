@@ -1,0 +1,220 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+h1 {
+    margin-top: 60px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+th {
+   padding-right: 45px;
+   text-align: center;
+   padding-bottom: 5px;
+   border-bottom: 2px solid #333;
+}
+
+td {
+    padding-top: 10px;
+}
+
+
+.delete_pop_up {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    position: fixed;
+    width: 80%;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #55514d;
+    padding: 20px;
+}
+
+.delete-buttons {
+    margin-top: 10px;
+}
+
+.cancel_button, .delete_button, .return_button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #55514d;
+    cursor: pointer;
+    margin: 5px;
+    color: #fff;
+}
+
+.cancel_button:hover, .delete_button:hover , .return_button:hover{
+    background-color: #113963;
+}
+
+
+.update_errors_pop_up {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    position: fixed;
+    width: 80%;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #55514d;
+    padding: 20px;
+    z-index: 2;
+}
+
+.error-msg {
+    margin-top: 20px;
+}
+.return-buttons {
+    margin-top: 20px;
+}
+
+
+.new_visitor {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #55514d;
+    cursor: pointer;
+    margin: 5px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.new_visitor:hover {
+    background-color: #113963;
+}
+
+.update-pop-up {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    position: fixed;
+    height: auto; 
+    width: 90%;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #55514d;
+    padding: 20px;
+    overflow-y: auto; 
+    max-height: 90vh; 
+}
+
+.update-pop-up form {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 100%; 
+}
+
+.update-pop-up fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+.update-pop-up legend {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #5b5b5b;
+}
+
+.update-pop-up label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.update-pop-up input[type="text"],
+.update-pop-up input[type="number"],
+.update-pop-up input[type="date"],
+.update-pop-up input[type="time"],
+.update-pop-up textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.update-pop-up input[type="text"]:focus,
+.update-pop-up input[type="number"]:focus,
+.update-pop-up input[type="date"]:focus,
+.update-pop-up input[type="time"]:focus,
+.update-pop-up textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.update-pop-up textarea {
+    resize: vertical;
+}
+
+.update-pop-up button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+ #Update-cancel {
+    width: 88%;
+    margin-top: -20px;
+}
+
+.update-pop-up button:hover {
+    background-color: #0056b3;
+}
+
+input::placeholder {
+    font-style: italic;
+  }
