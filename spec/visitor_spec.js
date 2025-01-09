@@ -6,8 +6,8 @@ const {
   validateComments,
   validateDateOfVisit,
   validateTimeOfVisit,
-} = require("../utilities/helper_functions");
-const { errorMessages, messages, queries } = require("../utilities/helper_objects");
+} = require("../src/utilities/helper_functions");
+const { errorMessages, messages, queries } = require("../src/utilities/helper_objects");
 const visitorModule = require("../src/visitor");
 
 const mockFullName = "Smanga Mthethwa";

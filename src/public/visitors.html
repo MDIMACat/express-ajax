@@ -7,9 +7,10 @@
 
     <title>Visitor Page</title>
 </head>
-<body>
+    
     <section>
         <h1>Visitor Table</h1>
+        <button class="new_visitor">New Visitor</button>
         <table id="visitor_table" class="visitor_table">
             <thead class="table_head" id = table_head>
                 <tr>
@@ -34,7 +35,7 @@
             </div>
         </div>
     </section>
-        <button class="new_visitor">New Visitor</button>
+        
     
 
         <section>
@@ -54,17 +55,17 @@
                 <fieldset>
                     <legend>Update Information</legend>
         
-                    <label for="visitor_name">Visitor name: </label>
-                    <input type="text" name="visitor_name" id="visitor_name" placeholder="example: John Doe" maxlength="40" required > <br>
-        
-                    <label for="assisted_by">Assisted by: </label>
-                    <input type="text" name="assisted_by" id="assisted_by" placeholder="example: Jane Doe" maxlength="40" required > <br>
+                    <label for="visitor_name">Visitor name:</label>
+                    <input type="text" name="visitor_name" id="visitor_name" placeholder="example: John Doe" maxlength="40" pattern="^[A-Za-z'\s\-]+(?:\s+[A-Za-z'\s\-]+)$" title="Valid input: Name & Surname (No numbers)"required>
+
+                    <label for="assisted_by">Assisted by:</label>
+                    <input type="text" name="assisted_by" id="assisted_by" placeholder="example: Jane Doe" maxlength="40" pattern="^[A-Za-z'\s\-]+(?:\s+[A-Za-z'\s\-]+)$" title="Valid input: Name & Surname (No numbers)" required><br>
         
                     <label for="visitor_age">Visitor Age: </label>
-                    <input type="number" name="visitor_age" id="visitor_age" placeholder="example: 29" min="1" max="100" onkeyup="if(this.value > 100) this.value = null;" required > <br>
+                    <input type="number" name="visitor_age" id="visitor_age" placeholder="example: 29" min="1" max="100" onkeyup="if(this.value > 100) this.value = null;" title="Valid input: Positive Numbers (No Decimals & Negative Numbers)" required > <br>
         
                     <label for="date_of_visit">Date of visit: </label>
-                    <input type="date" name="date_of_visit" id="date_of_visit" required > <br>
+                    <input type="date" name="date_of_visit" id="date_of_visit" min="1000-01-01" max="9999-12-31" title="Valid input: DD-MM-YYYY" required > <br>
         
                     <label for="time_of_visit">Time of visit: </label>
                     <input type="time" name="time_of_visit" id="time_of_visit" required > <br>

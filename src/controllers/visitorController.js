@@ -11,7 +11,7 @@ const { validationResult } = require("express-validator");
 const routingControllers = {
   getVisitorsTable: async (_req, res) => {
     try {
-      let list = await listAllVisitors();
+      const list = await listAllVisitors();
       res.status(200).json(list);
     } catch (error) {
       res.status(500).json({ error: `Unable to fetch visitors: ${error}` });

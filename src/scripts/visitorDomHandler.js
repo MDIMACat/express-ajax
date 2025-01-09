@@ -221,7 +221,6 @@ class Visitor {
 
         newForm.addEventListener("submit", (e) => {
           e.preventDefault();
-
           const formData = new FormData(newForm);
           const data = {};
           formData.forEach((value, key) => {
@@ -245,7 +244,6 @@ class Visitor {
                 self.domElements.updateError.style.display = "none";
               });
 
-              console.log(typeof response.error);
               if (typeof response.error === "string") {
                 self.domElements.errorMsg.textContent = response.error;
               } else {

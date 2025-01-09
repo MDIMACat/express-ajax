@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path")
 const { createTable } = require("./src/visitor");
-const  visitorsRoutes  = require("./src/controllers/visitorRoutes");
+const  visitorsRoutes  = require("./src/routes/visitorRoutes");
 const app = express();
 const PORT = 5000;
 
