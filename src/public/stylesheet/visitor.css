@@ -105,6 +105,13 @@ td {
     margin-top: 20px;
 }
 
+.displayed_items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: inherit;
+}
+
 
 .new_visitor {
     padding: 10px 20px;
@@ -113,12 +120,8 @@ td {
     border-radius: 10px;
     box-shadow: 2px 2px 5px #55514d;
     cursor: pointer;
-    margin: 5px;
-    color: #fff;
-    position: fixed;
     margin-top: 20px;
-    left: 45%;
-    
+    color: #fff;
 }
 
 .new_visitor:hover {

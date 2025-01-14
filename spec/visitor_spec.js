@@ -137,9 +137,25 @@ describe("Database Management", () => {
   describe("List All Visitors", () => {
     it("should return all visitors", async () => {
       const mockQueryResult = {
-        rows: [{ id: 1, visitor_name: "Smanga Mthethwa" }],
+        rows: [{
+          id: 1,
+          visitor_name: "Smanga Mthethwa",
+          visitor_age: 30,
+          date_of_visit: "2023-06-25",
+          time_of_visit: "10:00:00",
+          assisted_by: "Jane Smith",
+          comments: "No comments",
+        }],
       };
-      const expectedOutput = [{ 1: "Smanga Mthethwa" }];
+      const expectedOutput = [{
+        id: 1,
+        visitor_name: "Smanga Mthethwa",
+        visitor_age: 30,
+        date_of_visit: "2023-06-25",
+        time_of_visit: "10:00:00",
+        assisted_by: "Jane Smith",
+        comments: "No comments",
+      },];
 
       spyOn(pool, "query").and.callFake(async () => mockQueryResult);
 
