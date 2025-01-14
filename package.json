@@ -1,8 +1,6 @@
 {
-  "name": "siduduzile-mdima-282-node-sql-assignment-javascript",
   "version": "1.0.0",
-  "description": "Node & SQL assignment (282) For raw project instructions see: http://syllabus.africacode.net/projects/nodejs/sql/",
-  "main": "../src/index.js",
+  "main": "visitor_app.js",
   "scripts": {
     "test": "jasmine",
     "start": "node visitor_app.js",
@@ -10,14 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://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@github.com/Umuzi-org/Siduduzile-Mdima-282-node-sql-assignment-javascript.git"
+    "url": "https://github.com/MDIMACat/express-ajax"
   },
   "author": "Siduduzile Snenhlanhla Mdima",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Umuzi-org/Siduduzile-Mdima-282-node-sql-assignment-javascript/issues"
-  },
-  "homepage": "https://github.com/Umuzi-org/Siduduzile-Mdima-282-node-sql-assignment-javascript#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
