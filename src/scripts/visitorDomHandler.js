@@ -121,19 +121,30 @@ class Visitor {
   }
 
   renderVisitorList(visitorsList) {
-    const namesList = visitorsList.map((visitor) => Object.values(visitor));
-    let idx = 0;
-    const namesId = visitorsList.map((visitor) => Object.keys(visitor));
-    for (let i = 0; i < namesList.length; i++) {
+    for (let i = 0; i < visitorsList.length; i++) {
       const treeRow = document.createElement("tr");
-      const nameTableData = document.createElement("td");
-      const surnameTableData = document.createElement("td");
+      const name = document.createElement("td");
+      const visitorAge = document.createElement("td");
+      const dateOfVisit = document.createElement("td");
+      const timeOfVisit = document.createElement("td");
+      const assistedBy = document.createElement("td");
+      const comment = document.createElement("td");
       const deleteButton = document.createElement("button");
       const updateButton = document.createElement("button");
 
-      const [name, surname] = namesList[i][0].split(" ");
-      nameTableData.textContent = name;
-      surnameTableData.textContent = surname;
+      name.textContent = visitorsList[i].visitor_name;
+      visitorAge.textContent = visitorsList[i].visitor_age;
+      dateOfVisit.textContent = visitorsList[i].date_of_visit.slice(0, 10);
+      timeOfVisit.textContent = visitorsList[i].time_of_visit;
+      assistedBy.textContent = visitorsList[i].assisted_by;
+      comment.textContent = visitorsList[i].comments;
+
+      name.style.paddingRight = "45px";
+      visitorAge.style.paddingRight = "45px";
+      dateOfVisit.style.paddingRight = "45px";
+      timeOfVisit.style.paddingRight = "45px";
+      assistedBy.style.paddingRight = "45px";
+      comment.style.paddingRight = "45px";
 
       deleteButton.textContent = "Delete";
       deleteButton.style.padding = "8px";
@@ -153,14 +164,17 @@ class Visitor {
       updateButton.style.cursor = "pointer";
       updateButton.style.marginLeft = "30px";
 
-      deleteButton.id = namesId[idx];
-      updateButton.id = namesId[idx];
+      deleteButton.id = visitorsList[i].id;
+      updateButton.id = visitorsList[i].id;
       updateButton.className = "update-user";
-      treeRow.id = namesId[idx];
-      idx++;
+      treeRow.id = visitorsList[i].id;
 
-      treeRow.appendChild(nameTableData);
-      treeRow.appendChild(surnameTableData);
+      treeRow.appendChild(name);
+      treeRow.appendChild(visitorAge);
+      treeRow.appendChild(dateOfVisit);
+      treeRow.appendChild(timeOfVisit);
+      treeRow.appendChild(assistedBy);
+      treeRow.appendChild(comment);
       treeRow.appendChild(deleteButton);
       treeRow.appendChild(updateButton);
       this.domElements.tableBody.appendChild(treeRow);

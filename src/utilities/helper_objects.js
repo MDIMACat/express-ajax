@@ -48,7 +48,7 @@ const queries = {
 
   viewLastVisitor: `SELECT * FROM visitors ORDER BY id DESC LIMIT 1`,
 
-  listAllVisitors: `SELECT id, visitor_name FROM visitors`,
+  listAllVisitors: `SELECT id, visitor_name, visitor_age, date_of_visit, time_of_visit, assisted_by, comments FROM visitors`,
 
   deleteAVisitor: `DELETE FROM visitors WHERE id = $1`,
 

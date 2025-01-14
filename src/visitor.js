@@ -1,5 +1,9 @@
 const { pool } = require("./db/connection-pool");
-const { errorMessages, messages, queries } = require("./utilities/helper_objects");
+const {
+  errorMessages,
+  messages,
+  queries,
+} = require("./utilities/helper_objects");
 const {
   validateName,
   validateAge,
@@ -54,7 +58,7 @@ async function addNewVisitor(
   ];
 
   const result = await pool.query(query, values);
-  return result.rows[0].id
+  return result.rows[0].id;
 }
 
 async function listAllVisitors() {
@@ -62,9 +66,7 @@ async function listAllVisitors() {
   const result = await pool.query(query);
 
   return result.rows.map((visitor) => {
-    const pairs = {};
-    pairs[visitor.id] = visitor.visitor_name;
-    return pairs;
+    return visitor;
   });
 }
 
