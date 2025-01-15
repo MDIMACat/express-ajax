@@ -231,6 +231,8 @@ class Visitor {
         const title = updatePopUp.querySelector("legend");
         title.textContent = "Update Information";
 
+        this.getCurrentUserInformation(visitorId, newForm)
+        
         updatePopUp.style.display = "flex";
 
         newForm.addEventListener("submit", (e) => {
@@ -276,7 +278,7 @@ class Visitor {
     });
   }
 
-  getCurrentUserInformation(id) {
+  getCurrentUserInformation(id, form) {
     const self = this;
     const xhrGetUserInformation = new XMLHttpRequest();
     xhrGetUserInformation.open("GET", apiEndPoints.getVisitorInformation(id));
@@ -285,22 +287,24 @@ class Visitor {
     xhrGetUserInformation.onload = () => {
       if (xhrGetUserInformation.status === 200) {
         const visitorData = JSON.parse(xhrGetUserInformation.response);
-        self.domElements.visitorName.value = visitorData.visitor_name;
-        self.domElements.assistedBy.value = visitorData.assisted_by;
-        self.domElements.visitorAge.value = visitorData.visitor_age;
-        self.domElements.dateOfVisit.value = visitorData.date_of_visit.slice(
-          0,
-          10
-        );
-        self.domElements.timeOfVisit.value = visitorData.time_of_visit.slice(
-          0,
-          5
-        );
-        self.domElements.comments.value = visitorData.comments;
+        self.populateUpdateForm(visitorData, form)
       } else {
         console.error(`Error: ${xhrGetUserInformation.status}`);
       }
     };
+  }
+
+  populateUpdateForm(data, form){
+    console.log(data.date_of_visit)
+    form.querySelector('input[name="visitor_name"]').value = data.visitor_name;
+    form.querySelector('input[name="assisted_by"]').value = data.assisted_by;
+    form.querySelector('input[name="visitor_age"]').value = data.visitor_age;
+    form.querySelector('input[name="date_of_visit"]').value = data.date_of_visit.slice(
+      0,
+      10
+    );;
+    form.querySelector('input[name="time_of_visit"]').value = data.time_of_visit;
+    form.querySelector('textarea[name="comments"]').value = data.comments
   }
 
   newVisitor() {
