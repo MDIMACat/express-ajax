@@ -32,6 +32,7 @@ const apiEndPoints = {
   updateVisitor: (id) => {
     return `http://localhost:5000/app/visitors/${id}`;
   },
+  addVisitor: "http://localhost:5000/app/visitors",
 };
 
 class Visitor {
@@ -99,6 +100,25 @@ class Visitor {
     this.domElements.errorMsg = document.querySelector(
       fixedValues.classes.errorMsg
     );
+  }
+
+  newVisitor() {
+    this.domElements.newVisitor.addEventListener("click", () => {
+      const updatePopUp = this.domElements.updatePopUp;
+      const form = updatePopUp.querySelector("form");
+
+      form.reset();
+      const clonedForm = form.cloneNode(true);
+      form.replaceWith(clonedForm);
+
+      const title = updatePopUp.querySelector("legend");
+      title.textContent = "Visitor Information";
+
+      updatePopUp.style.display = "flex";
+    });
+    this.domElements.updateCancelButton.addEventListener("click", () => {
+      this.domElements.updatePopUp.style.display = "none";
+    });
   }
 
   addList() {
@@ -231,8 +251,8 @@ class Visitor {
         const title = updatePopUp.querySelector("legend");
         title.textContent = "Update Information";
 
-        this.getCurrentUserInformation(visitorId, newForm)
-        
+        this.getCurrentUserInformation(visitorId, newForm);
+
         updatePopUp.style.display = "flex";
 
         newForm.addEventListener("submit", (e) => {
@@ -287,43 +307,22 @@ class Visitor {
     xhrGetUserInformation.onload = () => {
       if (xhrGetUserInformation.status === 200) {
         const visitorData = JSON.parse(xhrGetUserInformation.response);
-        self.populateUpdateForm(visitorData, form)
+        self.populateUpdateForm(visitorData, form);
       } else {
         console.error(`Error: ${xhrGetUserInformation.status}`);
       }
     };
   }
 
-  populateUpdateForm(data, form){
-    console.log(data.date_of_visit)
+  populateUpdateForm(data, form) {
     form.querySelector('input[name="visitor_name"]').value = data.visitor_name;
     form.querySelector('input[name="assisted_by"]').value = data.assisted_by;
     form.querySelector('input[name="visitor_age"]').value = data.visitor_age;
-    form.querySelector('input[name="date_of_visit"]').value = data.date_of_visit.slice(
-      0,
-      10
-    );;
-    form.querySelector('input[name="time_of_visit"]').value = data.time_of_visit;
-    form.querySelector('textarea[name="comments"]').value = data.comments
-  }
-
-  newVisitor() {
-    this.domElements.newVisitor.addEventListener("click", () => {
-      const updatePopUp = this.domElements.updatePopUp;
-      const form = updatePopUp.querySelector("form");
-
-      form.reset();
-      const clonedForm = form.cloneNode(true);
-      form.replaceWith(clonedForm);
-
-      const title = updatePopUp.querySelector("legend");
-      title.textContent = "Visitor Information";
-
-      updatePopUp.style.display = "flex";
-    });
-    this.domElements.updateCancelButton.addEventListener("click", () => {
-      this.domElements.updatePopUp.style.display = "none";
-    });
+    form.querySelector('input[name="date_of_visit"]').value =
+      data.date_of_visit.slice(0, 10);
+    form.querySelector('input[name="time_of_visit"]').value =
+      data.time_of_visit;
+    form.querySelector('textarea[name="comments"]').value = data.comments;
   }
 }
 

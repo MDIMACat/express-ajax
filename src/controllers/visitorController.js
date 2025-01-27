@@ -37,11 +37,11 @@ const routingControllers = {
       visitorAge: req.body.visitor_age,
       dateOfVisit: new Date(req.body.date_of_visit).toISOString().slice(0, 10),
       timeOfVisit: req.body.time_of_visit,
-      comment: req.body.comment,
+      comments: req.body.comments,
     };
 
-    if (!data.comment) {
-      data.comment = "No Comment";
+    if (!data.comments) {
+      data.comments = "No Comment";
     }
 
     try {
@@ -50,7 +50,7 @@ const routingControllers = {
         data.visitorAge,
         data.dateOfVisit,
         data.timeOfVisit,
-        data.comment,
+        data.comments,
         data.assistedBy
       );
       data.visitorId = id;
